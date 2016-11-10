@@ -1,15 +1,25 @@
 <h1>Listing pins</h1>
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @pin.image.url(:medium) %>
+<div>
+  <%= link_to 'Back', pins_path %>
+</div>
+<br/>
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading center">
+        <%= image_tag @pin.image.url(:medium) %>
+      </div>
+      <div class="panel-body">
+        <p><%= @pin.description %></p>
+        <p><strong><%= @pin.user.email if @pin.user %></strong></p>
+        <!-- This hides the edit option when the user is not logged in -->
+        <% if @pin.user == current_user %>
+         <%= link_to 'Edit', edit_pin_path(@pin) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @pin.description %>
-</p>
-
-<!-- This hides the edit option when the user is not logged in -->
-<% if @pin.user == current_user %>
-  <%= link_to 'Edit', edit_pin_path(@pin) %> | 
-<% end %>
-<%= link_to 'Back', pins_path %>
