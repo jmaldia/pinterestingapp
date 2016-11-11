@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'paperclip', '~> 4.2'
 gem 'will_paginate', '~> 3.0.5'
+gem 'will_paginate-bootstrap'
 gem 'bootstrap-sass'
 gem 'masonry-rails', '~> 0.2.0'
 
