@@ -5,16 +5,6 @@
 <h1>Listing pins</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Description</th>
-      <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
   <tbody>
     <div id="pins" class="transitions-enabled">
@@ -41,3 +31,5 @@
 <% if user_signed_in? %>
   <%= link_to 'New Pin', new_pin_path %>
 <% end %>
+
+<%= will_paginate @pins %>
