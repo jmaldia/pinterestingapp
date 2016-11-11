@@ -1,10 +1,5 @@
-<h1>Listing pins</h1>
-<p id="notice"><%= notice %></p>
+</span><%= link_to 'Back', pins_path,  class: "btn btn-default" %>
 
-<div>
-  <%= link_to 'Back', pins_path %>
-</div>
-<br/>
 <div class="row">
   <div class="col-md-offset-2 col-md-8">
     <div class="panel panel-default">
@@ -12,11 +7,18 @@
         <%= image_tag @pin.image.url(:medium) %>
       </div>
       <div class="panel-body">
-        <p><%= @pin.description %></p>
-        <p><strong><%= @pin.user.name if @pin.user %></strong></p>
-        <!-- This hides the edit option when the user is not logged in -->
+        <p style="font-family: helvetica; font-size: 22px;"><%= @pin.description %></p>
+        <p style="color: #999999;"><strong><%= @pin.user.name if @pin.user %></strong></p>
+
         <% if @pin.user == current_user %>
-         <%= link_to 'Edit', edit_pin_path(@pin) %>
+          <%= link_to edit_pin_path(@pin) do %>
+            <span class="glyphicon glyphicon-edit"></span>
+            Edit
+          <% end %>
+          <%= link_to @pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <span class="glyphicon glyphicon-trash"></span>
+            Delete
+          <% end %>
         <% end %>
       </div>
     </div>
